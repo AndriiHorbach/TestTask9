@@ -5,11 +5,11 @@ using TechTalk.SpecFlow;
 
 namespace TestTask.Infrastructure.Common
 {
+    [Binding]
     class Hooks
     {
         private static IWebDriver _driver;
 
-        [BeforeFeature]
         [BeforeScenario]
         public static void InitDriver()
         {
@@ -17,8 +17,6 @@ namespace TestTask.Infrastructure.Common
             _driver = DriverManager.Driver;
             _driver.Manage().Window.Maximize();
         }
-
-        [AfterFeature]
         [AfterScenario]
         public static void DisposeDriver()
             => _driver.Dispose();

@@ -52,6 +52,9 @@
     <Reference Include="nunit.framework, Version=3.10.1.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
       <HintPath>..\packages\NUnit.3.10.1\lib\net45\nunit.framework.dll</HintPath>
     </Reference>
+    <Reference Include="SeleniumExtras.PageObjects, Version=3.11.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetSeleniumExtras.PageObjects.3.11.0\lib\net45\SeleniumExtras.PageObjects.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -71,28 +74,37 @@
   <ItemGroup>
     <Compile Include="Infrastructure\Common\DriverManager.cs" />
     <Compile Include="Infrastructure\Common\Hooks.cs" />
-    <Compile Include="Infrastructure\Common\PageFactory.cs" />
-    <Compile Include="Infrastructure\Controls\Elements\HtmlControl.cs" />
+    <Compile Include="Infrastructure\Data\AvegareCurrenceRateRow.cs" />
     <Compile Include="Infrastructure\Pages\BasePage.cs" />
+    <Compile Include="Infrastructure\Pages\ConverterPage.cs" />
+    <Compile Include="Infrastructure\Pages\MainPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Tests\Features\SomeFeature.feature.cs">
+    <Compile Include="Tests\Features\Converter.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SomeFeature.feature</DependentUpon>
+      <DependentUpon>Converter.feature</DependentUpon>
     </Compile>
-    <Compile Include="Tests\Steps\SomeFeatureSteps.cs" />
+    <Compile Include="Tests\Features\MainPage.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MainPage.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Tests\Steps\ConverterSteps.cs" />
+    <Compile Include="Tests\Steps\MainPageSteps.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-    <None Include="Tests\Features\SomeFeature.feature">
+    <None Include="Tests\Features\Converter.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>SomeFeature.feature.cs</LastGenOutput>
+      <LastGenOutput>Converter.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Tests\Features\MainPage.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>MainPage.feature.cs</LastGenOutput>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Infrastructure\Controls\Interfaces\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -1,17 +1,21 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
+using SeleniumExtras.PageObjects;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TestTask.Infrastructure.Common;
-using TestTask.Infrastructure.Controls.Elements;
 
 namespace TestTask.Infrastructure.Pages
 {
-    public class BasePage
+    public abstract class BasePage
     {
+        protected IWebDriver driver;
+
+        public BasePage (IWebDriver driver)
+        {
+            this.driver = driver;
+            PageFactory.InitElements(driver, this);
+        }
+
         public WebDriverWait Wait = new WebDriverWait(DriverManager.Driver, TimeSpan.FromSeconds(10))
         {
             PollingInterval = TimeSpan.FromMilliseconds(100)
@@ -20,7 +24,7 @@ namespace TestTask.Infrastructure.Pages
         public void WaitForPageLoad()
             => Wait.Until(driver => ((IJavaScriptExecutor)driver).ExecuteScript("return document.readyState").Equals("complete"));
 
-        public bool IsElementDisplayed (HtmlControl control)
+        public bool IsElementDisplayed (IWebElement control)
         {
             try
             {
@@ -35,5 +39,22 @@ namespace TestTask.Infrastructure.Pages
             Wait.Until(ExpectedConditions.ElementIsVisible(@by));
             Wait.Until(ExpectedConditions.ElementToBeClickable(@by));
         }
+
+        protected string ExecuteJS(string script)
+        {
+            return ((IJavaScriptExecutor)DriverManager.Driver).ExecuteScript(script).ToString();
+        }
+
+        protected string GetValueByCssJS (string cssLocator)
+        {
+            return ExecuteJS("return $('" + cssLocator + "').val()");
+        }
+
+        public void Open ()
+        {
+            DriverManager.Driver.Navigate().GoToUrl(GetPageUrl());
+        }
+
+        public abstract string GetPageUrl();
     }
 }
