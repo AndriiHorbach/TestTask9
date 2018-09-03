@@ -75,8 +75,10 @@
     <Compile Include="Infrastructure\Common\DriverManager.cs" />
     <Compile Include="Infrastructure\Common\Hooks.cs" />
     <Compile Include="Infrastructure\Data\AvegareCurrenceRateRow.cs" />
+    <Compile Include="Infrastructure\Data\UserData.cs" />
     <Compile Include="Infrastructure\Pages\BasePage.cs" />
     <Compile Include="Infrastructure\Pages\ConverterPage.cs" />
+    <Compile Include="Infrastructure\Pages\LoginPage.cs" />
     <Compile Include="Infrastructure\Pages\MainPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tests\Features\Converter.feature.cs">
@@ -89,7 +91,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MainPage.feature</DependentUpon>
     </Compile>
+    <Compile Include="Tests\Features\LoginFuncionality.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LoginFuncionality.feature</DependentUpon>
+    </Compile>
     <Compile Include="Tests\Steps\ConverterSteps.cs" />
+    <Compile Include="Tests\Steps\LoginSteps.cs" />
     <Compile Include="Tests\Steps\MainPageSteps.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -102,6 +110,10 @@
     <None Include="Tests\Features\MainPage.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>MainPage.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Tests\Features\LoginFuncionality.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>LoginFuncionality.feature.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup />

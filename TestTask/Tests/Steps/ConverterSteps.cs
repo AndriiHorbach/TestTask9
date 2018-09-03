@@ -32,7 +32,5 @@ namespace TestTask.Tests.Steps
             var expectedAmount = Decimal.Multiply(1000,Decimal.Parse(exchangeRate));
             Assert.AreEqual(expectedAmount, actualAmount, "expcted and actual amounts are not equal");
         }
-
-
     }
 }

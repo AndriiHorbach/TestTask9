@@ -15,6 +15,18 @@ namespace TestTask.Infrastructure.Pages
         [FindsBy(How = How.CssSelector, Using = "div.widget-currency_bank>div>table")]
         public IWebElement DataTable;
 
+        [FindsBy(How = How.XPath, Using = "//a[contains(text(),'Вход')]")]
+        public IWebElement LoginLink;
+
+        [FindsBy(How = How.Name, Using = "login")]
+        public IWebElement LoginField;
+
+        [FindsBy(How = How.Name, Using = "pass")]
+        public IWebElement PasswordField;
+
+        [FindsBy(How = How.XPath, Using = "//input[@type='submit']")]
+        public IWebElement SubmitButton;
+
         public AvegareCurrenceRateRow GetAverageCurrencyCells(string currency)
         {
             var currencyCells = DataTable.FindElements(By.XPath(".//tbody/tr/th[contains(text(), '"+currency+ "')]/../td")).ToList();
@@ -29,6 +41,14 @@ namespace TestTask.Infrastructure.Pages
         public override string GetPageUrl()
         {
             return Url;
+        }
+
+        public void LoginAsUser (string userLogin, string userPassword)
+        {
+            LoginLink.Click();
+            LoginField.SendKeys(userLogin);
+            PasswordField.SendKeys(userPassword);
+            SubmitButton.Submit();
         }
     }
 }
