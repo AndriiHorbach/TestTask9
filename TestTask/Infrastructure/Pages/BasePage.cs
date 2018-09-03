@@ -8,9 +8,9 @@ namespace TestTask.Infrastructure.Pages
     {
         protected IWebDriver driver;
 
-        public BasePage (IWebDriver driver)
+        public BasePage ()
         {
-            this.driver = driver;
+            driver = DriverManager.Driver;
             PageFactory.InitElements(driver, this);
         }
 
@@ -26,9 +26,14 @@ namespace TestTask.Infrastructure.Pages
 
         public void Open ()
         {
-            DriverManager.Driver.Navigate().GoToUrl(GetPageUrl());
+            driver.Navigate().GoToUrl(GetPageUrl());
         }
 
         public abstract string GetPageUrl();
+
+        public string GetCurrentUrl()
+        {
+            return driver.Url;
+        }
     }
 }

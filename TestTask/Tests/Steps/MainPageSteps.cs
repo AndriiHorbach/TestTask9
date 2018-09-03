@@ -1,6 +1,5 @@
 ﻿using NUnit.Framework;
 using TechTalk.SpecFlow;
-using TestTask.Infrastructure.Common;
 using TestTask.Infrastructure.Pages;
 
 namespace TestTask.Tests.Steps
@@ -8,7 +7,7 @@ namespace TestTask.Tests.Steps
     [Binding]
     class MainPageSteps
     {
-        private readonly MainPage _MainPage = new MainPage(DriverManager.Driver);
+        private readonly MainPage _MainPage = new MainPage();
 
         [Given("Main page is opened")]
         public void GivenIAmOnTheMainPage()
@@ -22,8 +21,8 @@ namespace TestTask.Tests.Steps
             Assert.IsTrue(difference > 0, "Buy rate is greater than sale rate");
         }
 
-        [Then(@"average price for A-92 is lower that for A-95")]
-        public void ThenAveragePriceForAIsLowerThatForA()
+        [Then("average price for A-92 is lower than for A-95")]
+        public void ThenAveragePriceForA92IsLowerThanForA95()
         {
             var fuelCells = _MainPage.GetAverageFuelPriceCells();
             var difference = fuelCells.A92 - fuelCells.A95;

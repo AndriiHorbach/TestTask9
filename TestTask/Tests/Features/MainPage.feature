@@ -12,5 +12,5 @@ Examples:
 	| RUB      |
 
 Scenario: Average fuel price
-	Then average price for A-92 is lower that for A-95
+	Then average price for A-92 is lower than for A-95
  

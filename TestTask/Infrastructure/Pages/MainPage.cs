@@ -8,14 +8,12 @@ namespace TestTask.Infrastructure.Pages
 {
     class MainPage : BasePage
     {
-        public MainPage(IWebDriver driver) : base(driver) { }
-
         public readonly string Url = "https://finance.i.ua/";
 
         [FindsBy(How = How.CssSelector, Using = "div.widget-currency_bank>div>table")]
         public IWebElement CurrencyRatesInBanksDataTable;
 
-        [FindsBy(How = How.XPath, Using = "//a[contains(text(),'Вход')]")]
+        [FindsBy(How = How.XPath, Using = "(//*[@class='ho_menu ho_menu-account']//a)[1]")]
         public IWebElement LoginLink;
 
         [FindsBy(How = How.Name, Using = "login")]

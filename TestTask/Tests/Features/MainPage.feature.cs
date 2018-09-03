@@ -107,7 +107,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 3
 this.FeatureBackground();
 #line 15
- testRunner.Then("average price for A-92 is lower that for A-95", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("average price for A-92 is lower than for A-95", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

@@ -31,8 +31,7 @@ namespace TestTask.Tests.Features
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Converter", "\tIn order to check converter functionality\r\n\tAs a user\r\n\tI want to be told the am" +
-                    "ount of converted currnecy", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Converter", null, ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -75,15 +74,15 @@ namespace TestTask.Tests.Features
         public virtual void ConverterFunctionality()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Converter functionality", null, ((string[])(null)));
-#line 6
+#line 3
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 7
+#line 4
  testRunner.Given("Converter page is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 8
+#line 5
  testRunner.When("I convert 1000 of USD currency", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 9
- testRunner.Then("I see correct converted amount in UAH", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 6
+ testRunner.Then("I see correct converted amount in UAH for 1000 of selected currency", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

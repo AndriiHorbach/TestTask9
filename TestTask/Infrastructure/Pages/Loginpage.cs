@@ -5,8 +5,6 @@ namespace TestTask.Infrastructure.Pages
 {
     class LoginPage : BasePage
     {
-        public LoginPage(IWebDriver driver) : base(driver) { }
-
         public readonly string Url = "https://passport.i.ua/login/";
 
         [FindsBy(How = How.CssSelector, Using = "div.block_alert>div.content")]
@@ -15,11 +13,6 @@ namespace TestTask.Infrastructure.Pages
         public override string GetPageUrl()
         {
             return Url;
-        }
-
-        public string GetCurrentUrl()
-        {
-            return driver.Url;
         }
 
         public string GetErrorMessage()
