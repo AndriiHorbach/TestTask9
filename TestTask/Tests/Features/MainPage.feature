@@ -1,10 +1,16 @@
 ﻿Feature: MainPage
 
-Scenario Outline: Exchange rates
+Background: 
 	Given Main page is opened
-	Then For <currency> currency sale rate is greater than buy rate
+
+Scenario Outline: Exchange rates	
+	Then <currency> currency sale rate is greater than buy rate
 Examples:
-| currency |
-| USD      |
-| EUR      |
-| RUB      |
+	| currency |
+	| USD      |
+	| EUR      |
+	| RUB      |
+
+Scenario: Average fuel price
+	Then average price for A-92 is lower that for A-95
+ 

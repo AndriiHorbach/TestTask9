@@ -72,19 +72,17 @@ namespace TestTask.Tests.Features
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Converter functionality")]
-        [NUnit.Framework.CategoryAttribute("mytag")]
         public virtual void ConverterFunctionality()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Converter functionality", null, new string[] {
-                        "mytag"});
-#line 7
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Converter functionality", null, ((string[])(null)));
+#line 6
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 8
+#line 7
  testRunner.Given("Converter page is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 9
+#line 8
  testRunner.When("I convert 1000 of USD currency", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 10
+#line 9
  testRunner.Then("I see correct converted amount in UAH", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();

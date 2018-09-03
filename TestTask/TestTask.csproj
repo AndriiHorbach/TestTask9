@@ -75,6 +75,7 @@
     <Compile Include="Infrastructure\Common\DriverManager.cs" />
     <Compile Include="Infrastructure\Common\Hooks.cs" />
     <Compile Include="Infrastructure\Data\AvegareCurrenceRateRow.cs" />
+    <Compile Include="Infrastructure\Data\AverageFuelPricesRow.cs" />
     <Compile Include="Infrastructure\Data\UserData.cs" />
     <Compile Include="Infrastructure\Pages\BasePage.cs" />
     <Compile Include="Infrastructure\Pages\ConverterPage.cs" />

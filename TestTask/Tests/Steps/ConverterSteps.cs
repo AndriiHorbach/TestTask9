@@ -25,7 +25,6 @@ namespace TestTask.Tests.Steps
         [Then(@"I see correct converted amount in (.*)")]
         public void ThenISeeCorrectConvertedAmount(string convertedCurrency)
         {
-
             var convertedAmount = _ConverterPage.GetCurrencyExchange(convertedCurrency);
             var actualAmount = Decimal.Parse(convertedAmount);
             var exchangeRate = _ConverterPage.GetCurrencyRate(convertedCurrency);

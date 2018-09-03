@@ -3,7 +3,6 @@
 	As a user
 	I want to be told the amount of converted currnecy
 
-@mytag
 Scenario: Converter functionality
 	Given Converter page is opened
 	When I convert 1000 of USD currency

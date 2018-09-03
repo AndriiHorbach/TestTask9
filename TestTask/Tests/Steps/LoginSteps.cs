@@ -20,7 +20,6 @@ namespace TestTask.Tests.Steps
             _MainPage.LoginAsUser(userData.Login, userData.Login);
         }
 
-
         [Then(@"And see error message (.*) on the login page")]
         public void ThenAndSeeErrorMessageOnTheLoginPage(string expectedErrorMessage)
         {
@@ -30,6 +29,5 @@ namespace TestTask.Tests.Steps
             Assert.AreEqual(expectedUrl, actualUrl, "URLs dont match");
             Assert.AreEqual(expectedErrorMessage, actualErrorMessage, "Wrong error message is displayed");
         }
-
     }
 }

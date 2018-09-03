@@ -6,8 +6,8 @@ using TestTask.Infrastructure.Common;
 namespace TestTask.Infrastructure.Pages
 {
     class ConverterPage : BasePage
-    {  
-        public ConverterPage(IWebDriver driver) : base(driver) {  }
+    {
+        public ConverterPage(IWebDriver driver) : base(driver) { }
 
         public static readonly string Url = "https://finance.i.ua/converter/";
 
@@ -28,7 +28,7 @@ namespace TestTask.Infrastructure.Pages
         public string GetValueForCurrency(string currency, string type)
         {
             return ((IJavaScriptExecutor)DriverManager.Driver)
-                .ExecuteScript("return $('p#" + currency + ">#currency_"+ type + "').val()")
+                .ExecuteScript("return $('p#" + currency + ">#currency_" + type + "').val()")
                 .ToString().Replace(" ", "");
         }
 

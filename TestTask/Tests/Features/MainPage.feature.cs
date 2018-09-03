@@ -69,6 +69,14 @@ namespace TestTask.Tests.Features
             testRunner.CollectScenarioErrors();
         }
         
+        public virtual void FeatureBackground()
+        {
+#line 3
+#line 4
+ testRunner.Given("Main page is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+        }
+        
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Exchange rates")]
         [NUnit.Framework.TestCaseAttribute("USD", null)]
@@ -77,13 +85,29 @@ namespace TestTask.Tests.Features
         public virtual void ExchangeRates(string currency, string[] exampleTags)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Exchange rates", null, exampleTags);
-#line 3
+#line 6
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 4
- testRunner.Given("Main page is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 5
- testRunner.Then(string.Format("For {0} currency sale rate is greater than buy rate", currency), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 3
+this.FeatureBackground();
+#line 7
+ testRunner.Then(string.Format("{0} currency sale rate is greater than buy rate", currency), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Average fuel price")]
+        public virtual void AverageFuelPrice()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Average fuel price", null, ((string[])(null)));
+#line 14
+this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 3
+this.FeatureBackground();
+#line 15
+ testRunner.Then("average price for A-92 is lower that for A-95", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

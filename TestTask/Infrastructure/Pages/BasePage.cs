@@ -1,7 +1,5 @@
 ﻿using OpenQA.Selenium;
-using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.PageObjects;
-using System;
 using TestTask.Infrastructure.Common;
 
 namespace TestTask.Infrastructure.Pages
@@ -14,30 +12,6 @@ namespace TestTask.Infrastructure.Pages
         {
             this.driver = driver;
             PageFactory.InitElements(driver, this);
-        }
-
-        public WebDriverWait Wait = new WebDriverWait(DriverManager.Driver, TimeSpan.FromSeconds(10))
-        {
-            PollingInterval = TimeSpan.FromMilliseconds(100)
-        };
-
-        public void WaitForPageLoad()
-            => Wait.Until(driver => ((IJavaScriptExecutor)driver).ExecuteScript("return document.readyState").Equals("complete"));
-
-        public bool IsElementDisplayed (IWebElement control)
-        {
-            try
-            {
-                return control.Displayed;
-            }
-            catch (Exception) { return false; }
-        }
-
-        public void WaitUntilElementAvaialable(By @by)
-        {
-            Wait.Until(ExpectedConditions.ElementExists(@by));
-            Wait.Until(ExpectedConditions.ElementIsVisible(@by));
-            Wait.Until(ExpectedConditions.ElementToBeClickable(@by));
         }
 
         protected string ExecuteJS(string script)
